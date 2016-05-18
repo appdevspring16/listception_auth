@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem "faker"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
