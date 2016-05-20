@@ -13,4 +13,14 @@
     </a>
   </div>
 
+<!-- <%= List.where(:board_id => @board.id) %>
+
+but a better way of doing this is....
+
+<%= @board.lists.count %>
+that method should exist so i don't have to do that full thing
+but you have to DEFINE the method so let's go into the model for the board...that's where you add the logic -->
+
+<%= @board.lists.count %>
+
 </div>
