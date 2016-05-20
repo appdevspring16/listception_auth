@@ -1,0 +1,98 @@
+<div class="page-header">
+  <h3>Books to read</h3>
+
+  <div class="btn-group">
+    <a href="/boards" class="btn btn-default">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </a>
+    <% if @board.user_id == current_user.id %>
+      <a href="/boards/<%= @board.id %>/edit" class="btn btn-default">
+        <i class="fa fa-edit" aria-hidden="true"></i>
+      </a>
+      <a href="/delete_board/<%= @board.id %>" class="btn btn-default" rel="nofollow">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </a>
+    <% end %>
+
+
+  </div>
+</div>
+
+<!-- <%#= List.where(:board_id => @board.id) %>
+
+but a better way of doing this is....
+
+<%= @board.lists.count %>
+that method should exist so i don't have to do that full thing
+but you have to DEFINE the method so let's go into the model for the board...that's where you add the logic -->
+
+<!-- <%= @board.lists.count %> -->
+<!-- he already included this horizon stylesheet for us but we need to link to it in the head of the document -->
+
+<link rel="stylesheet" href="/bootstrap-horizon.css">
+
+<div class="row row-horizon">
+  <% @board.lists.each do |list| %>
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= list.name %></h3>
+      </div>
+
+      <div class="panel-body">
+        <% list.cards.each do |card| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= card.name %></h3>
+          </div>
+          <div class="panel-body">
+            <%= card.description %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+      <div class="panel-footer">
+        <form action="/create_card" method="post">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for list_id -->
+
+            <!-- <label for="list_id" class="control-label">
+              List
+            </label> -->
+
+            <input type="hidden" name="list_id" value="<%= list.id %>">
+
+
+          <!-- Label and input for name -->
+          <div class="form-group">
+            <label for="name" class="control-label">
+              Name
+            </label>
+
+            <input type="text" id="name" name="name" placeholder="Name" class="form-control" ">
+          </div>
+
+          <!-- Label and input for description -->
+          <div class="form-group">
+            <label for="description" class="control-label">
+              Description
+            </label>
+
+            <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"></textarea>
+          </div>
+
+          <button class="btn btn-success">
+            Create Card
+          </button>
+          or
+          <a href="/cards">Cancel</a>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <% end %>
+</div>
