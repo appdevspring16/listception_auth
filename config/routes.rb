@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   # Routes for the Card resource:
   # CREATE
+  #get "/", :controller => "boards", :action => "index"
+  root "boards#index"
+
+
   get "/cards/new", :controller => "cards", :action => "new"
   post "/create_card", :controller => "cards", :action => "create"
 
