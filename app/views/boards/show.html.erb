@@ -22,20 +22,22 @@ that method should exist so i don't have to do that full thing
 but you have to DEFINE the method so let's go into the model for the board...that's where you add the logic -->
 
 <!-- <%= @board.lists.count %> -->
+<!-- he already included this horizon stylesheet for us but we need to link to it in the head of the document -->
 
-<div class="row">
-<% @board.lists.each do |list| %>
-  <div class="col-md-3">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">   <%= list.name %></h3>
+<link rel="stylesheet" href="/bootstrap-horizon.css">
+
+<div class="row row-horizon">
+  <% @board.lists.each do |list| %>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">   <%= list.name %></h3>
+        </div>
+      <div class="panel-body">
+        Panel content
       </div>
-    <div class="panel-body">
-      Panel content
     </div>
   </div>
-</div>
-
 <% end %>
 
 </div>
