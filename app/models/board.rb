@@ -4,6 +4,8 @@ class Board < ActiveRecord::Base
 
   has_many :lists, :class_name => "List", :foreign_key => "board_id"
   belongs_to :board
+  
+  belongs_to :user
 
 
 
