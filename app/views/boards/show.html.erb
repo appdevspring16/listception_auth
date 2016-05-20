@@ -6,12 +6,16 @@
     <a href="/boards" class="btn btn-default">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </a>
+
+    <% if @board.user_id == current_user.id %>
     <a href="/boards/<%= @board.id %>/edit" class="btn btn-default">
       <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </a>
     <a href="/delete_board/<%= @board.id %>" class="btn btn-default" rel="nofollow">
       <i class="fa fa-trash-o" aria-hidden="true"></i>
     </a>
+    <% end %>
+
   </div>
 </div>
 
@@ -30,12 +34,12 @@
       </div>
 
       <div class="panel-body">
-      <%= list.cards.each do |card| %>
-      <h4><%= card.name %></h4>
-      <p>
-        <%= card.description %>
-      </p>
-      <% end %>
+        <%= list.cards.each do |card| %>
+        <h4><%= card.name %></h4>
+        <p>
+          <%= card.description %>
+        </p>
+        <% end %>
       </div>
     </div>
   </div>
