@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h1>
+    Boards
+    <a href="/boards/new" class="btn btn-lg btn-success">New Board</a>
+  </h1>
+</div>
+
+<div class="row row-horizon">
+  <% @boards.each do |board| %>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a href="/boards/<%= board.id %>"><%= board.name %></a>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <% board.lists.each do |list| %>
+            <div class="panel-body">
+              <%= list.name %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
