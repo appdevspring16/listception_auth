@@ -10,7 +10,7 @@
 1. `rails server`
 1. Navigate to [http://localhost:3000](http://localhost:3000) and verify that it welcomes you aboard.
 1. Open up a new Terminal tab or window and `cd` back to the application's root folder to run additional commands.
-1. As we work, you can see [the solution for each step in granular detail here](https://github.com/dsgn425-2016/listception_auth_solutions/commits/heroku?page=2).
+1. As we work, you can see [the solution for each step in granular detail here](https://github.com/appdevspring-16/listception_auth_solutions/commits/heroku?page=2).
 1. If you haven't already, it might be helpful to install the Atom packages `rails-snippets` and `atom-bootstrap3`. Furthermore, uninstall or disable the package `emmet`.
 
 ### [Here is our target.](https://listception-auth-target.herokuapp.com)
