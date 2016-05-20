@@ -24,7 +24,10 @@
     <h3 class="panel-title"><%=list.name%></h3>
   </div>
   <div class="panel-body">
-    Panel content
+    <% list.cards.each do |card|%>
+    <h4><%=card.name%></h4>
+    <p><%=card.description%></p>
+    <% end %>
   </div>
 </div>
 </div>
