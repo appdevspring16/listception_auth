@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Routes for the Card resource:
   # CREATE
   #get "/", :controller => "boards", :action => "index"
