@@ -1,30 +1,19 @@
 <div class="page-header">
-  <h3>Books to read</h3>
-</div>
-
-<div class="btn-group btn-group-justified">
-  <a href="/boards" class="btn btn-primary">
-    Back
-  </a>
-  <a href="/boards/<%= @board.id %>/edit" class="btn btn-warning">
-    Edit
-  </a>
-  <a href="/delete_board/<%= @board.id %>" class="btn btn-danger" rel="nofollow">
-    Delete
-  </a>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    <dl class="dl-horizontal">
-      <dt>User</dt>
-      <dd><%= @board.user_id %></dd>
-
-      <dt>Name</dt>
-      <dd><%= @board.name %></dd>
-
-    </dl>
+  <h3><%= @board.name %></h3>
 
 
+  <div class="btn-group">
+    <a href="/boards" class="btn btn-default" </i>
+      <i class="fa fa-chevron-left" aria-hidden="true">
+      </a>
+      <a href="/boards/<%= @board.id %>/edit" class="btn btn-default">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      </a>
+      <a href="/delete_board/<%= @board.id %>" class="btn btn-default" rel="nofollow">
+        Delete
+      </a>
+    </div>
   </div>
-</div>
+
+  <%= List.where(:board_id => @board.id).count %>
+  <%= @board.lists.count %>
