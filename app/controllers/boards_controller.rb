@@ -1,7 +1,16 @@
 class BoardsController < ApplicationController
 
   def index
-    @boards = Board.all
+    # @boards = Board.all
+    # @boards = Board.where(:user_id => current_user.id)
+    # the above is the long way to say it but we can do it shorter....
+    #   to be able to easily traverse my user assocaitions
+    #   would like to says
+    # @boards = current_user.boards
+    # can't do that yet because need to go into models into user.rb which was generated i think when we did devise, and say that user has many boards
+
+    @boards = current_user.boards
+
   end
 
   def show
