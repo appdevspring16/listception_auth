@@ -6,4 +6,5 @@ class Board < ActiveRecord::Base
   #t.datetime "updated_at
 
   has_many :lists
+  belongs_to :user
 end
