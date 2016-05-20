@@ -7,12 +7,12 @@
     <i class="fa fa-chevron-left"></i>
   </a>
   <% if @board.user_id == current_user.id %>
-    <a href="/boards/<%= @board.id %>/edit" class="btn btn-default btn-sm">
-      <i class="fa fa-pencil-square-o"></i>
-    </a>
-    <a href="/delete_board/<%= @board.id %>" class="btn btn-default btn-sm" rel="nofollow">
-      <i class="fa fa-trash"></i>
-    </a>
+  <a href="/boards/<%= @board.id %>/edit" class="btn btn-default btn-sm">
+    <i class="fa fa-pencil-square-o"></i>
+  </a>
+  <a href="/delete_board/<%= @board.id %>" class="btn btn-default btn-sm" rel="nofollow">
+    <i class="fa fa-trash"></i>
+  </a>
   <% end %>
 </div>
 
@@ -24,8 +24,13 @@
   <% @board.lists.each do |list| %>
   <div class="col-md-3">
     <div class="panel panel-default">
+
       <div class="panel-heading">
-        <h3 class="panel-title"><%= list.name %> # <%= list.id %></h3>
+        <% if @board.user_id == current_user.id %>
+        <h3 class="panel-title"><a href="/lists/<%= list.id %>/edit"><%= list.name %></a></h3>
+        <% else %>
+        <h3 class="panel-title"><%= list.name %></h3>
+        <% end %>
       </div>
       <div class="panel-body">
 
