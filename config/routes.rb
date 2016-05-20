@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   # get "/", :controller => "boards", :action => "index"
   root "boards#index"
 # other gems expect to have a root url defined....? and they want you to define it this way, so we're going to comment out the line above - doing some thing, like the root if nothing added to it would be board controller # index - this is shortform but gems want it - use this
