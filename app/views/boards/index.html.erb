@@ -5,26 +5,23 @@
   </h1>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <table class="table table-striped table-hover">
-      <tr>
-        <th>User</th>
-        <th>Name</th>
-        <th>Actions</th>
-      </tr>
-
-      <% @boards.each do |board| %>
-      <tr>
-        <td><%= board.user_id %></td>
-        <td><%= board.name %></td>
-        <td>
-          <a href="/boards/<%= board.id %>" class="btn btn-primary">Show</a>
-          <a href="/boards/<%= board.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_board/<%= board.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
+<div class="row row-horizon">
+  <% @boards.each do |board| %>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a href="/boards/<%= board.id %>"><%= board.name %></a>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <% board.lists.each do |list| %>
+            <div class="panel-body">
+              <%= list.name %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
