@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+  root "boards#index"
+  
   # Routes for the Card resource:
   # CREATE
   get "/cards/new", :controller => "cards", :action => "new"

@@ -1,28 +1,109 @@
 <div class="page-header">
-  <h3>Board #<%= @board.id %></h3>
+  <h3><%= @board.name %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <dl class="dl-horizontal">
-      <dt>User</dt>
-      <dd><%= @board.user_id %></dd>
 
-      <dt>Name</dt>
-      <dd><%= @board.name %></dd>
 
-    </dl>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/boards" class="btn btn-primary">
+    <div class="btn-group">
+      <a href="/boards" class="btn btn-default">
         Back
       </a>
-      <a href="/boards/<%= @board.id %>/edit" class="btn btn-warning">
+      <a href="/boards/<%= @board.id %>/edit" class="btn btn-default">
         Edit
       </a>
-      <a href="/delete_board/<%= @board.id %>" class="btn btn-danger" rel="nofollow">
+      <a href="/delete_board/<%= @board.id %>" class="btn btn-default" rel="nofollow">
         Delete
       </a>
     </div>
   </div>
+</div>
+
+<div class="row">
+  <% @board.lists.each do |list| %>
+  <div class="col-md-3 well">
+    <h4><%= list.name %></h4>
+
+    <% list.cards.each do |card| %>
+    <div class="well">
+      <h6>  <%= card.name %></h6>
+      <p>
+        <%= card.description %>
+      </p>
+    </div>
+  <% end %>
+
+
+
+
+  <form action="/create_card" method="post">
+    <!-- Hidden input for authenticity token to protect from forgery -->
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+    <!-- Label and input for list_id -->
+    <div class="form-group">
+
+      <input type="hidden" id="list_id" name="list_id" placeholder="List" class="form-control" value="<%= list.id %>">
+    </div>
+
+    <!-- Label and input for name -->
+    <div class="form-group">
+      <label for="name" class="control-label">
+        Name
+      </label>
+
+      <input type="text" id="name" name="name" placeholder="Name" class="form-control">
+    </div>
+
+    <!-- Label and input for description -->
+    <div class="form-group">
+      <label for="description" class="control-label">
+        Description
+      </label>
+
+      <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"></textarea>
+    </div>
+
+    <button class="btn btn-success">
+      Create Card
+    </button>
+    or
+    <a href="/cards">Cancel</a>
+  </form>
+
+  </div>
+
+  <% end %>
+
+<div class="col-md-3 well">
+
+
+
+    <form action="/create_list" method="post">
+    <!-- Hidden input for authenticity token to protect from forgery -->
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+    <!-- Label and input for board_id -->
+    <div class="form-group">
+
+
+      <input type="hidden" id="board_id" name="board_id" placeholder="Board" class="form-control" value="<%= @board.id %>">
+    </div>
+
+    <!-- Label and input for name -->
+    <div class="form-group">
+
+      <input type="text" id="name" name="name" placeholder="Name" class="form-control">
+    </div>
+
+    <button class="btn btn-success">
+      Create List
+    </button>
+    or
+    <a href="/lists">Cancel</a>
+  </form>
+
+</div>
 </div>
