@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem "starter_generators", :git => "http://github.com/raghubetina/starter_generators.git"
+
 gem "faker"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
