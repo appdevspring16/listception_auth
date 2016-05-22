@@ -33,7 +33,37 @@
 
       </div>
       <div class="panel-footer">
-        List panel footer
+
+        <form action="/create_card" method="post">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden">
+
+          <!-- Label and input for list_id -->
+            <input type="hidden" name="list_id" value="<%= list.id %>">
+
+          <!-- Label and input for name -->
+          <div class="form-group">
+            <label for="name" class="control-label">
+              Name
+            </label>
+
+            <input type="text" id="name" name="name" placeholder="Name" class="form-control">
+          </div>
+
+          <!-- Label and input for description -->
+          <div class="form-group">
+            <label for="description" class="control-label">
+              Description
+            </label>
+
+            <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"></textarea>
+          </div>
+
+          <button class="btn btn-success">
+            Create Card
+          </button>
+        </form>
+
       </div>
     </div>
   </div>
