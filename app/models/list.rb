@@ -1,6 +1,6 @@
 class List < ActiveRecord::Base
 
-  validates :name, :presense => true, :uniqueness => { :scope => :board_id }
+  validates :name, :presence => true, :uniqueness => { :scope => :board_id }
   validates :board_id, :presence => true
 
 end
