@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root "boards#index"
+
   # Routes for the Card resource:
   # CREATE
   get "/cards/new", :controller => "cards", :action => "new"
