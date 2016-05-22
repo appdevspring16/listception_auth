@@ -15,16 +15,20 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12">
-    <dl class="dl-horizontal">
-      <dt>User</dt>
-      <dd><%= @board.user_id %></dd>
 
-      <dt>Name</dt>
-      <dd><%= @board.name %></dd>
-
-    </dl>
-
-
+  <% @board.lists.each do |list| %>
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= list.name %></div>
+      <div class="panel-body">
+        Panel content
+      </div>
+      <div class="panel-footer">
+        Panel footer
+      </div>
+    </div>
   </div>
+  <% end %>
+
+</div>
 </div>
