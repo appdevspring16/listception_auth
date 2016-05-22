@@ -24,7 +24,7 @@
 
         <% list.cards.each do |card| %>
         <div class="panel panel-default">
-          <div class="panel-heading"><%= card.name %></div>
+          <div class="panel-heading"><a href="/cards/<%= card.id %>/edit"><%= card.name %></a></div>
           <div class="panel-body">
             <%= card.description %>
           </div>
