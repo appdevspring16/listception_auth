@@ -21,10 +21,19 @@
     <div class="panel panel-default">
       <div class="panel-heading"><%= list.name %></div>
       <div class="panel-body">
-        Panel content
+
+        <% list.cards.each do |card| %>
+        <div class="panel panel-default">
+          <div class="panel-heading"><%= card.name %></div>
+          <div class="panel-body">
+            <%= card.description %>
+          </div>
+        </div>
+        <% end %>
+
       </div>
       <div class="panel-footer">
-        Panel footer
+        List panel footer
       </div>
     </div>
   </div>
