@@ -19,7 +19,7 @@
   <% @board.lists.each do |list| %>
   <div class="col-md-3">
     <div class="panel panel-default">
-      <div class="panel-heading"><%= list.name %></div>
+      <div class="panel-heading"><a href="/lists/<%= list.id %>/edit"><%= list.name %></a></div>
       <div class="panel-body">
 
         <% list.cards.each do |card| %>
